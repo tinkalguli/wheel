@@ -1,10 +1,12 @@
 import React from "react";
 
 import { MenuVertical, Clock } from "@bigbinary/neeto-icons";
-import { Tag, Typography, Tooltip, Avatar } from "neetoui";
+import { Tag, Typography, Tooltip, Avatar, Dropdown } from "neetoui";
 
 import { useUserState } from "contexts/user";
 import { formatTime, timeAgo } from "utils/time";
+
+import { NOTE_OPTIONS } from "./constants";
 
 const NoteCard = ({ note }) => {
   const { user } = useUserState();
@@ -20,7 +22,15 @@ const NoteCard = ({ note }) => {
         >
           {note.title}
         </Typography>
-        <MenuVertical size={20} />
+        <Dropdown
+          icon={() => <MenuVertical size={20} />}
+          buttonStyle="text"
+          position="bottom-end"
+        >
+          {NOTE_OPTIONS.map(option => (
+            <li key={option}>{option}</li>
+          ))}
+        </Dropdown>
       </div>
       <Typography
         style="body2"
