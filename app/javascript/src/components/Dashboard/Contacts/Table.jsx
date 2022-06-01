@@ -12,7 +12,6 @@ const Table = () => {
 
   return (
     <NeetoUITable
-      fixedHeight
       rowData={CONTACTS}
       columnData={CONTACTS_TABLE_COLUMN_DATA}
       onRowSelect={selectedRowKeys => setSelectedContactsIds(selectedRowKeys)}

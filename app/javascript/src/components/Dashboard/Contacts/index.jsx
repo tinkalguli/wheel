@@ -15,7 +15,7 @@ const Contacts = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="flex w-full">
+    <div className="flex w-full overflow-hidden">
       <CustomMenuBar
         title="Contacts"
         showMenu={showMenu}
