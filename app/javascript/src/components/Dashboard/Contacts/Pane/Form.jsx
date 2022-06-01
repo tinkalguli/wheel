@@ -20,7 +20,7 @@ export default function ContactForm({ onClose, contact, isEdit }) {
       {({ isSubmitting }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
-            <div className="flex w-full flex-grow-0 items-center justify-between">
+            <div className="flex w-full flex-grow-0 items-start justify-between">
               <Input
                 label="First Name"
                 name="first_name"
