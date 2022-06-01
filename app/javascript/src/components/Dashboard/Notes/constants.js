@@ -27,11 +27,6 @@ export const NOTES_TABLE_COLUMN_DATA = [
   },
 ];
 
-export const ASSIGNED_CONTACTS = [
-  { label: "Person1", value: "person1" },
-  { label: "Person2", value: "person2" },
-];
-
 export const TAGS = [
   { label: "Getting Started", value: "getting-started" },
   { label: "Onboarding", value: "onboarding" },
