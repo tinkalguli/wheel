@@ -5,14 +5,29 @@ import { Container, Header, Scrollable } from "neetoui/layouts";
 
 import CustomMenuBar from "components/Common/CustomMenuBar";
 
-import { CONTACTS_VIEWS } from "./constants";
+import { CONTACTS, CONTACTS_VIEWS } from "./constants";
 import NewContactPane from "./Pane/Create";
+import EditContactPane from "./Pane/Edit";
 import Table from "./Table";
 
 const Contacts = () => {
   const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [showEditContact, setShowEditContact] = useState(false);
+  const [, setShowDeleteAlert] = useState(false);
+  const [, setSelectedContactsIds] = useState([]);
+
+  const handleDeleteClick = contact => {
+    setShowDeleteAlert(true);
+    setSelectedContactsIds(state => [...state, contact?.id]);
+  };
+
+  const handleEditClick = contact => {
+    setSelectedContact(contact);
+    setShowEditContact(true);
+  };
 
   return (
     <div className="flex w-full overflow-hidden">
@@ -41,11 +56,20 @@ const Contacts = () => {
           menuBarToggle={() => setShowMenu(!showMenu)}
         />
         <Scrollable className="w-full">
-          <Table />
+          <Table
+            contacts={CONTACTS}
+            handleDeleteClick={handleDeleteClick}
+            handleEditClick={handleEditClick}
+          />
         </Scrollable>
         <NewContactPane
           showPane={showNewContactPane}
           setShowPane={setShowNewContactPane}
+        />
+        <EditContactPane
+          showPane={showEditContact}
+          setShowPane={setShowEditContact}
+          contact={selectedContact}
         />
       </Container>
     </div>
