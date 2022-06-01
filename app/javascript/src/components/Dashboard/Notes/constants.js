@@ -26,3 +26,17 @@ export const NOTES_TABLE_COLUMN_DATA = [
     width: "70%",
   },
 ];
+
+export const ASSIGNED_CONTACTS = [
+  { label: "Person1", value: "person1" },
+  { label: "Person2", value: "person2" },
+];
+
+export const TAGS = [
+  { label: "Getting Started", value: "getting-started" },
+  { label: "Onboarding", value: "onboarding" },
+  { label: "User Flow", value: "user-flow" },
+  { label: "UX", value: "ux" },
+  { label: "Bugs", value: "bugs" },
+  { label: "V2", value: "v2" },
+];
