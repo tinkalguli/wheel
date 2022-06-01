@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
+import { Check } from "neetoicons";
 import { Button, Pane } from "neetoui";
 import { Input, Select } from "neetoui/formik";
 
@@ -60,6 +61,8 @@ export default function ContactForm({ onClose, contact, isEdit }) {
               size="large"
               style="primary"
               className="mr-3"
+              iconPosition="right"
+              icon={Check}
               disabled={isSubmitting}
               loading={isSubmitting}
               onClick={() => setSubmitted(true)}
