@@ -27,11 +27,6 @@ export const NOTES_TABLE_COLUMN_DATA = [
   },
 ];
 
-export const ASSIGNED_CONTACTS = [
-  { label: "Person1", value: "person1" },
-  { label: "Person2", value: "person2" },
-];
-
 export const TAGS = [
   { label: "Getting Started", value: "getting-started" },
   { label: "Onboarding", value: "onboarding" },
@@ -39,4 +34,23 @@ export const TAGS = [
   { label: "UX", value: "ux" },
   { label: "Bugs", value: "bugs" },
   { label: "V2", value: "v2" },
+];
+
+export const NOTES_VIEWS = [
+  { label: "All", count: 200 },
+  { label: "Users", count: 80 },
+  { label: "Leads", count: 60 },
+  { label: "Visitors", count: 60 },
+];
+
+export const NOTES_SEGMENTS = [
+  { label: "Europe", count: 80 },
+  { label: "Middle-East", count: 60 },
+  { label: "Asia", count: 60 },
+];
+
+export const NOTES_TAGS = [
+  { label: "Sales", count: 80 },
+  { label: "Finance", count: 60 },
+  { label: "User Experience", count: 60 },
 ];

@@ -4,9 +4,7 @@ import { Plus, Search, Settings } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar } from "neetoui/layouts";
 
-import { SEGMENTS, TAGS, VIEWS } from "./constants";
-
-const Views = () => {
+const Views = ({ views = [], segments = [], tags = [] }) => {
   const [isSegmentsSearchCollapsed, setIsSegmentsSearchCollapsed] =
     useState(true);
   const [isTagsSearchCollapsed, setIsTagsSearchCollapsed] = useState(true);
@@ -29,10 +27,10 @@ const Views = () => {
   const filterComparator = ({ label }, searchTerm) =>
     label.toLowerCase().includes(searchTerm.trim().toLowerCase());
 
-  const filteredSegments = SEGMENTS.filter(segment =>
+  const filteredSegments = segments.filter(segment =>
     filterComparator(segment, segmentsSearchTerm)
   );
-  const filteredTags = TAGS.filter(tag =>
+  const filteredTags = tags.filter(tag =>
     filterComparator(tag, tagsSearchTerm)
   );
 
@@ -81,7 +79,7 @@ const Views = () => {
   ];
 
   useEffect(() => {
-    setActiveView(VIEWS[0]);
+    setActiveView(views[0]);
   }, []);
 
   const BlockItem = ({ view, onClick, activeView }) => {
@@ -99,7 +97,7 @@ const Views = () => {
 
   return (
     <>
-      {VIEWS.map((view, idx) => (
+      {views.map((view, idx) => (
         <BlockItem
           key={`${view.title}-${idx}`}
           view={view}

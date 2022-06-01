@@ -5,18 +5,22 @@ import { Button, PageLoader } from "neetoui";
 import { Container, Header, Scrollable } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
+import CustomMenuBar from "components/Common/CustomMenuBar";
 import EmptyState from "components/Common/EmptyState";
 
-import CustomMenuBar from "./CustomMenuBar";
+import { NOTES_SEGMENTS, NOTES_TAGS, NOTES_VIEWS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NoteCard from "./NoteCard";
 import NewNotePane from "./Pane/Create";
+import EditNotePane from "./Pane/Edit";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedNote, setSelectedNote] = useState(null);
+  const [showEditNote, setShowEditNote] = useState(false);
   const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
   const [showMenu, setShowMenu] = useState(true);
@@ -42,13 +46,24 @@ const Notes = () => {
     setSelectedNoteIds(state => [...state, note_id]);
   };
 
+  const handleEditClick = note => {
+    setShowEditNote(true);
+    setSelectedNote(note);
+  };
+
   if (loading) {
     return <PageLoader />;
   }
 
   return (
     <div className="flex w-full">
-      <CustomMenuBar showMenu={showMenu} />
+      <CustomMenuBar
+        title="Notes"
+        showMenu={showMenu}
+        views={NOTES_VIEWS}
+        segments={NOTES_SEGMENTS}
+        tags={NOTES_TAGS}
+      />
       <Container>
         <Header
           title="All Notes"
@@ -74,6 +89,7 @@ const Notes = () => {
             {notes.map(note => (
               <NoteCard
                 key={note.id}
+                handleEditClick={() => handleEditClick(note)}
                 handleDeleteClick={() => handleDeleteClick(note.id)}
                 note={note}
               />
@@ -92,6 +108,12 @@ const Notes = () => {
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}
           fetchNotes={fetchNotes}
+        />
+        <EditNotePane
+          showPane={showEditNote}
+          setShowPane={setShowEditNote}
+          fetchNotes={fetchNotes}
+          note={selectedNote}
         />
         {showDeleteAlert && (
           <DeleteAlert

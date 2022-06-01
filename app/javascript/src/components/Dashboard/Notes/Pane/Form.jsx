@@ -5,15 +5,18 @@ import { Button, Pane } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 
 import notesApi from "apis/notes";
+import { CONTACTS } from "components/Dashboard/Contacts/constants";
 
-import {
-  NOTES_FORM_VALIDATION_SCHEMA,
-  ASSIGNED_CONTACTS,
-  TAGS,
-} from "../constants";
+import { NOTES_FORM_VALIDATION_SCHEMA, TAGS } from "../constants";
 
 export default function NoteForm({ onClose, refetch, note, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
+
+  const assignedContacts = CONTACTS.map(contact => ({
+    ...contact,
+    value: contact.email,
+    label: contact.name,
+  }));
 
   const handleSubmit = async values => {
     try {
@@ -61,7 +64,7 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
               isMulti={true}
               name="assigned_contacts"
               className="w-full flex-grow-0"
-              options={ASSIGNED_CONTACTS}
+              options={assignedContacts}
               isSearchable={true}
               placeholder="Select Contacts"
             />

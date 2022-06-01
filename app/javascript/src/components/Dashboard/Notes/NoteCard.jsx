@@ -6,7 +6,7 @@ import { Tag, Typography, Tooltip, Avatar, Dropdown } from "neetoui";
 import { useUserState } from "contexts/user";
 import { formatTime, timeAgo } from "utils/time";
 
-const NoteCard = ({ note, handleDeleteClick }) => {
+const NoteCard = ({ note, handleDeleteClick, handleEditClick }) => {
   const { user } = useUserState();
 
   const noteOptions = [
@@ -16,7 +16,7 @@ const NoteCard = ({ note, handleDeleteClick }) => {
     },
     {
       label: "Edit",
-      onClick: () => {},
+      onClick: handleEditClick,
     },
   ];
 
