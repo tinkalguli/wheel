@@ -2,6 +2,7 @@ import React from "react";
 
 import { MenuHorizontal } from "neetoicons";
 import { Avatar } from "neetoui";
+import * as yup from "yup";
 
 import { formatDate } from "utils/time";
 
@@ -154,3 +155,30 @@ export const CONTACTS_VIEWS = [
   { label: "Completed", count: 60 },
   { label: "Phase 2", count: 60 },
 ];
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  first_name: yup.string().required("First Name is required"),
+  last_name: yup.string().required("Last Name is required"),
+  email: yup.string().email("Invalid Email").required("Email is required"),
+  role: yup
+    .object()
+    .nullable()
+    .shape({
+      label: yup.string().required("State is required"),
+      value: yup.string().required("State is required"),
+    }),
+});
+
+export const ROLES = [
+  { label: "Agent", value: "agent" },
+  { label: "Admin", value: "admin" },
+  { label: "User", value: "user" },
+  { label: "Accountant", value: "accountant" },
+];
+
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  role: null,
+};
