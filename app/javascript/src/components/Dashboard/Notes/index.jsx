@@ -11,12 +11,15 @@ import CustomMenuBar from "./CustomMenuBar";
 import DeleteAlert from "./DeleteAlert";
 import NoteCard from "./NoteCard";
 import NewNotePane from "./Pane/Create";
+import EditNotePane from "./Pane/Edit";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
   const [showNewNotePane, setShowNewNotePane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedNote, setSelectedNote] = useState(null);
+  const [showEditNote, setShowEditNote] = useState(false);
   const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
   const [showMenu, setShowMenu] = useState(true);
@@ -40,6 +43,11 @@ const Notes = () => {
   const handleDeleteClick = note_id => {
     setShowDeleteAlert(true);
     setSelectedNoteIds(state => [...state, note_id]);
+  };
+
+  const handleEditClick = note => {
+    setShowEditNote(true);
+    setSelectedNote(note);
   };
 
   if (loading) {
@@ -74,6 +82,7 @@ const Notes = () => {
             {notes.map(note => (
               <NoteCard
                 key={note.id}
+                handleEditClick={() => handleEditClick(note)}
                 handleDeleteClick={() => handleDeleteClick(note.id)}
                 note={note}
               />
@@ -92,6 +101,12 @@ const Notes = () => {
           showPane={showNewNotePane}
           setShowPane={setShowNewNotePane}
           fetchNotes={fetchNotes}
+        />
+        <EditNotePane
+          showPane={showEditNote}
+          setShowPane={setShowEditNote}
+          fetchNotes={fetchNotes}
+          note={selectedNote}
         />
         {showDeleteAlert && (
           <DeleteAlert
