@@ -7,13 +7,13 @@ import { Input, Select } from "neetoui/formik";
 
 import { CONTACTS_FORM_VALIDATION_SCHEMA, ROLES } from "../constants";
 
-export default function ContactForm({ onClose, contact, isEdit }) {
+export default function ContactForm({ onSubmit, onClose, contact, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <Formik
       initialValues={contact}
-      onSubmit={() => {}}
+      onSubmit={onSubmit}
       validateOnBlur={submitted}
       validateOnChange={submitted}
       validationSchema={CONTACTS_FORM_VALIDATION_SCHEMA}
