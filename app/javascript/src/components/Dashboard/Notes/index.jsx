@@ -37,6 +37,11 @@ const Notes = () => {
     }
   };
 
+  const handleDeleteClick = note_id => {
+    setShowDeleteAlert(true);
+    setSelectedNoteIds(state => [...state, note_id]);
+  };
+
   if (loading) {
     return <PageLoader />;
   }
@@ -67,7 +72,11 @@ const Notes = () => {
             size={"viewport"}
           >
             {notes.map(note => (
-              <NoteCard key={note.id} note={note} />
+              <NoteCard
+                key={note.id}
+                handleDeleteClick={() => handleDeleteClick(note.id)}
+                note={note}
+              />
             ))}
           </Scrollable>
         ) : (

@@ -24,5 +24,3 @@ export const NOTES_TABLE_COLUMN_DATA = [
     width: "70%",
   },
 ];
-
-export const NOTE_OPTIONS = ["Edit", "Delete"];

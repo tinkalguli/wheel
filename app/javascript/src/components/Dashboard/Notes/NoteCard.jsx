@@ -6,10 +6,19 @@ import { Tag, Typography, Tooltip, Avatar, Dropdown } from "neetoui";
 import { useUserState } from "contexts/user";
 import { formatTime, timeAgo } from "utils/time";
 
-import { NOTE_OPTIONS } from "./constants";
-
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, handleDeleteClick }) => {
   const { user } = useUserState();
+
+  const noteOptions = [
+    {
+      label: "Delete",
+      onClick: handleDeleteClick,
+    },
+    {
+      label: "Edit",
+      onClick: () => {},
+    },
+  ];
 
   return (
     <div className="neeto-ui-border-gray-400 hover:neeto-ui-shadow-s w-full cursor-pointer gap-2 rounded-sm border p-4 transition-all">
@@ -27,8 +36,10 @@ const NoteCard = ({ note }) => {
           buttonStyle="text"
           position="bottom-end"
         >
-          {NOTE_OPTIONS.map(option => (
-            <li key={option}>{option}</li>
+          {noteOptions.map(option => (
+            <li key={option.label} onClick={option.onClick}>
+              {option.label}
+            </li>
           ))}
         </Dropdown>
       </div>
