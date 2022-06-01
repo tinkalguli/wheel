@@ -5,9 +5,10 @@ import { Button, PageLoader } from "neetoui";
 import { Container, Header, Scrollable } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
+import CustomMenuBar from "components/Common/CustomMenuBar";
 import EmptyState from "components/Common/EmptyState";
 
-import CustomMenuBar from "./CustomMenuBar";
+import { NOTES_SEGMENTS, NOTES_TAGS, NOTES_VIEWS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NoteCard from "./NoteCard";
 import NewNotePane from "./Pane/Create";
@@ -56,7 +57,13 @@ const Notes = () => {
 
   return (
     <div className="flex w-full">
-      <CustomMenuBar showMenu={showMenu} />
+      <CustomMenuBar
+        title="Notes"
+        showMenu={showMenu}
+        views={NOTES_VIEWS}
+        segments={NOTES_SEGMENTS}
+        tags={NOTES_TAGS}
+      />
       <Container>
         <Header
           title="All Notes"
