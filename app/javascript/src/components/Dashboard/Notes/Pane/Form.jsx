@@ -16,7 +16,7 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
   const assignedContacts = CONTACTS.map(contact => ({
     ...contact,
     value: contact.email,
-    label: contact.name,
+    label: `${contact.first_name} ${contact.last_name}`,
   }));
 
   const handleSubmit = async values => {
