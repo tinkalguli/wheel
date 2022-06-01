@@ -6,10 +6,11 @@ import { Container, Header, Scrollable } from "neetoui/layouts";
 import CustomMenuBar from "components/Common/CustomMenuBar";
 
 import { CONTACTS_VIEWS } from "./constants";
+import NewContactPane from "./Pane/Create";
 import Table from "./Table";
 
 const Contacts = () => {
-  const [, setShowNewContactPane] = useState(false);
+  const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
 
@@ -42,6 +43,10 @@ const Contacts = () => {
         <Scrollable className="w-full">
           <Table />
         </Scrollable>
+        <NewContactPane
+          showPane={showNewContactPane}
+          setShowPane={setShowNewContactPane}
+        />
       </Container>
     </div>
   );
