@@ -164,9 +164,10 @@ export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .object()
     .nullable()
     .shape({
-      label: yup.string().required("State is required"),
-      value: yup.string().required("State is required"),
-    }),
+      label: yup.string().required("Role is required"),
+      value: yup.string().required("Role is required"),
+    })
+    .required("Role is required"),
 });
 
 export const ROLES = [
