@@ -6,6 +6,7 @@ import { Container, Header, Scrollable } from "neetoui/layouts";
 import CustomMenuBar from "components/Common/CustomMenuBar";
 
 import { CONTACTS, CONTACTS_VIEWS } from "./constants";
+import DeleteAlert from "./DeleteAlert";
 import NewContactPane from "./Pane/Create";
 import EditContactPane from "./Pane/Edit";
 import Table from "./Table";
@@ -16,12 +17,12 @@ const Contacts = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedContact, setSelectedContact] = useState(null);
   const [showEditContact, setShowEditContact] = useState(false);
-  const [, setShowDeleteAlert] = useState(false);
-  const [, setSelectedContactsIds] = useState([]);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [, setSelectedContactIds] = useState([]);
 
   const handleDeleteClick = contact => {
     setShowDeleteAlert(true);
-    setSelectedContactsIds(state => [...state, contact?.id]);
+    setSelectedContactIds(state => [...state, contact?.id]);
   };
 
   const handleEditClick = contact => {
@@ -71,6 +72,12 @@ const Contacts = () => {
           setShowPane={setShowEditContact}
           contact={selectedContact}
         />
+        {showDeleteAlert && (
+          <DeleteAlert
+            onClose={() => setShowDeleteAlert(false)}
+            setSelectedContactIds={setSelectedContactIds}
+          />
+        )}
       </Container>
     </div>
   );
