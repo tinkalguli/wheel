@@ -38,7 +38,8 @@ def delete_all_records_from_all_tables
 end
 
 def create_sample_data!
-  create_user! email: "oliver@example.com"
+  user = create_user! email: "oliver@example.com"
+  create_notes!(user)
 end
 
 def create_user!(options = {})
@@ -51,4 +52,12 @@ def create_user!(options = {})
   }
   attributes = user_attributes.merge options
   User.create! attributes
+end
+
+def create_notes!(user)
+  attributes = { user: user, title: Faker::Book.title, description: Faker::Food.description }
+
+  10.times do
+    Note.create attributes
+  end
 end

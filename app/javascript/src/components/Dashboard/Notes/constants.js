@@ -3,13 +3,33 @@ import * as yup from "yup";
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
+  tags: null,
+  assigned_contacts: null,
 };
 
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
   description: yup.string().required("Description is required"),
-  assigned_contacts: yup.array().required("Minimum one contact is required"),
-  tags: yup.array().required("Minimum one tag is required"),
+  tags: yup
+    .array()
+    .nullable()
+    .of(
+      yup.object().shape({
+        value: yup.string().required("Minimum one tag should be selected"),
+        label: yup.string().required("Minimum one tag should be selected"),
+      })
+    )
+    .required("Minimum one tag should be selected"),
+  assigned_contacts: yup
+    .array()
+    .nullable()
+    .of(
+      yup.object().shape({
+        value: yup.string().required("Minimum one contact should be assigned"),
+        label: yup.string().required("Minimum one contact should be assigned"),
+      })
+    )
+    .required("Minimum one contact should be assigned"),
 });
 
 export const NOTES_TABLE_COLUMN_DATA = [

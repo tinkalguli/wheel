@@ -50,7 +50,9 @@ const NoteCard = ({ note, handleDeleteClick, handleEditClick }) => {
         {note.description}
       </Typography>
       <div className="flex items-center justify-between pt-3">
-        <Tag label="Getting Started" />
+        {(note?.tags || ["Getting started"]).map(value => (
+          <Tag key={value} label={value} />
+        ))}
         <div className="flex items-center">
           <Tooltip
             position="bottom-start"

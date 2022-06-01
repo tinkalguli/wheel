@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
+import { Check } from "neetoicons";
 import { Button, Pane } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 
@@ -15,7 +16,7 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
   const assignedContacts = CONTACTS.map(contact => ({
     ...contact,
     value: contact.email,
-    label: contact.name,
+    label: `${contact.first_name} ${contact.last_name}`,
   }));
 
   const handleSubmit = async values => {
@@ -84,8 +85,10 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
               type="submit"
               label={isEdit ? "Update" : "Save Changes"}
               size="large"
+              icon={Check}
               style="primary"
               className="mr-3"
+              iconPosition="right"
               disabled={isSubmitting}
               loading={isSubmitting}
               onClick={() => setSubmitted(true)}

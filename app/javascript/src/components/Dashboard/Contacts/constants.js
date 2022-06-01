@@ -1,150 +1,125 @@
-import React from "react";
-
-import { MenuHorizontal } from "neetoicons";
-import { Avatar } from "neetoui";
-
-import { formatDate } from "utils/time";
+import * as yup from "yup";
 
 export const CONTACTS = [
   {
     email: "Barry_Taylor3408@twace.org",
-    name: "Barry Taylor",
+    first_name: "Barry",
+    last_name: "Taylor",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Chuck_Dyson5768@atink.com",
-    name: "Chuck Dyson",
+    first_name: "Chuck",
+    last_name: "Dyson",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Eduardo_Gunn5778@gembat.biz",
-    name: "Eduardo_Gunn5778",
+    first_name: "Eduardo",
+    last_name: "Gunn",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Eduardo_Allcott9101@sveldo.biz",
-    name: "Eduardo Allcott",
+    first_name: "Eduardo",
+    last_name: "Allcott",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Nathan_Khan8258@bungar.biz",
-    name: "Nathan Khan",
+    first_name: "Nathan",
+    last_name: "Khan",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Zoe_Terry2465@nanoff.biz",
-    name: "Zoe Terry",
+    first_name: "Zoe",
+    last_name: "Terry",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Cecilia_Watt8135@naiker.biz",
-    name: "Cecilia Watt",
+    first_name: "Cecilia",
+    last_name: "Watt",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Jennifer_Lewis9652@gmail.com",
-    name: "Jennifer Lewis",
+    first_name: "Jennifer",
+    last_name: "Lewis",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Lana_Shields2803@cispeto.com",
-    name: "Lana Shields",
+    first_name: "Lana",
+    last_name: "Shields",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Julian_Cunningham2816@zorer.org",
-    name: "Julian Cunningham",
+    first_name: "Julian",
+    last_name: "Cunningham",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Diane_Hilton5577@mafthy.com",
-    name: "Diane Hilton",
+    first_name: "Diane",
+    last_name: "Hilton",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Mason_Goodman4082@eirey.tech",
-    name: "Mason Goodman",
+    first_name: "Mason",
+    last_name: "Goodman",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Candace_Lindsay3978@atink.com",
-    name: "Candace Lindsay",
+    first_name: "Candace",
+    last_name: "Lindsay",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Harry_Miller7846@extex.org",
-    name: "Harry Miller",
+    first_name: "Harry",
+    last_name: "Miller",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Alexander_Palmer5366@bungar.biz",
-    name: "Alexander Palmer",
+    first_name: "Alexander",
+    last_name: "Palmer",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Johnathan_Porter3237@iatim.tech",
-    name: "Johnathan Porter",
+    first_name: "Johnathan",
+    last_name: "Porter",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Alexander_Ring3679@eirey.tech",
-    name: "Alexander Ring",
+    first_name: "Alexander",
+    last_name: "Ring",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Analise_Neville2234@deavo.com",
-    name: "Analise Neville",
+    first_name: "Analise",
+    last_name: "Neville",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Carter_Walter7155@nanoff.biz",
-    name: "Carter Walter",
+    first_name: "Carter",
+    last_name: "Walter",
     created_at: "2022-05-31T12:38:32.806Z",
   },
   {
     email: "Eryn_Nanton1351@muall.tech",
-    name: "Eryn Nanton",
+    first_name: "Eryn",
+    last_name: "Nanton",
     created_at: "2022-05-31T12:38:32.806Z",
-  },
-];
-
-export const CONTACTS_TABLE_COLUMN_DATA = [
-  {
-    title: "NAME & ROLE",
-    dataIndex: "name",
-    key: "name",
-    render: name => (
-      <div className="flex flex-row items-center justify-start">
-        <div>
-          <Avatar
-            size="medium"
-            className="mr-3"
-            user={{ name, imageUrl: null }}
-          />
-        </div>
-        {name}
-      </div>
-    ),
-  },
-  {
-    title: "EMAIL",
-    dataIndex: "email",
-    key: "email",
-  },
-  {
-    title: "CREATED AT",
-    dataIndex: "created_at",
-    key: "created_at",
-    render: created_at => (
-      <div className="flex flex-row items-center justify-start">
-        {formatDate(created_at)}
-      </div>
-    ),
-  },
-  {
-    dataIndex: "icon",
-    key: "icon",
-    render: () => <MenuHorizontal />,
   },
 ];
 
@@ -154,3 +129,31 @@ export const CONTACTS_VIEWS = [
   { label: "Completed", count: 60 },
   { label: "Phase 2", count: 60 },
 ];
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  first_name: yup.string().required("First Name is required"),
+  last_name: yup.string().required("Last Name is required"),
+  email: yup.string().email("Invalid Email").required("Email is required"),
+  role: yup
+    .object()
+    .nullable()
+    .shape({
+      label: yup.string().required("Role is required"),
+      value: yup.string().required("Role is required"),
+    })
+    .required("Role is required"),
+});
+
+export const ROLES = [
+  { label: "Agent", value: "agent" },
+  { label: "Admin", value: "admin" },
+  { label: "User", value: "user" },
+  { label: "Accountant", value: "accountant" },
+];
+
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  role: null,
+};
