@@ -21,28 +21,26 @@ export default function ContactForm({ onSubmit, onClose, contact, isEdit }) {
       {({ isSubmitting }) => (
         <Form className="w-full">
           <Pane.Body className="space-y-6">
-            <div className="flex w-full flex-grow-0 items-start justify-between">
+            <div className="flex w-full flex-grow-0 items-start justify-between space-x-4">
               <Input
+                required
                 label="First Name"
                 name="first_name"
                 placeholder="Enter first name"
-                className="mr-2"
-                required
               />
               <Input
+                required
                 label="Last Name"
                 name="last_name"
                 placeholder="Enter last name"
-                className="ml-2"
-                required
               />
             </div>
             <Input
+              required
               label="Email Address"
               name="email"
               placeholder="Enter your email address"
               className="w-full flex-grow-0"
-              required
             />
             <Select
               required
