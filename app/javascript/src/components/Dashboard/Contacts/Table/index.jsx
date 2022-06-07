@@ -4,10 +4,11 @@ import { Table as NeetoUITable } from "neetoui";
 
 import TableColumns from "./TableColumns";
 
-import { DEFAULT_PAGE_SIZE } from "../constants";
+import { DEFAULT_PAGE_SIZE, INITIAL_PAGE_NUMBER } from "../constants";
 
 const Table = ({ handleDeleteClick, handleEditClick, contacts }) => {
-  const [currentPageNumber, setCurrentPageNumber] = useState(1);
+  const [currentPageNumber, setCurrentPageNumber] =
+    useState(INITIAL_PAGE_NUMBER);
 
   const contactOptions = [
     {

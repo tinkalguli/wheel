@@ -159,3 +159,5 @@ export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
 };
 
 export const DEFAULT_PAGE_SIZE = 10;
+
+export const INITIAL_PAGE_NUMBER = 1;
