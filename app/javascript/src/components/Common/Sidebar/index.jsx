@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Logo from "images/Logo";
-import { RightArrow, LeftArrow } from "neetoicons";
 import { Sidebar as NeetoUISidebar } from "neetoui/layouts";
 import { useHistory } from "react-router-dom";
 
@@ -17,7 +16,6 @@ import { useUserState } from "contexts/user";
 import { APP_NAME, SIDENAV_LINKS } from "./constants";
 
 const Sidebar = () => {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const history = useHistory();
   const authDispatch = useAuthDispatch();
   const { user } = useUserState();
@@ -48,34 +46,21 @@ const Sidebar = () => {
   ];
 
   return (
-    <nav>
-      <NeetoUISidebar
-        isCollapsed={isSidebarCollapsed}
-        navLinks={SIDENAV_LINKS}
-        appName={APP_NAME}
-        organizationInfo={{
-          logo: <img src={Logo} alt="logo" />,
-        }}
-        profileInfo={{
-          name: `${user.first_name} ${user.last_name}`,
-          imageUrl: user.profile_image_path,
-          email: user.email,
-          bottomLinks,
-        }}
-        changelogProps={{ id: "neetochangelog-trigger" }}
-      />
-      <div className="collapse-btn flex cursor-pointer justify-center">
-        {isSidebarCollapsed ? (
-          <RightArrow
-            onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          />
-        ) : (
-          <LeftArrow
-            onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          />
-        )}
-      </div>
-    </nav>
+    <NeetoUISidebar
+      isCollapsed={false}
+      navLinks={SIDENAV_LINKS}
+      appName={APP_NAME}
+      organizationInfo={{
+        logo: <img src={Logo} alt="logo" />,
+      }}
+      profileInfo={{
+        name: `${user.first_name} ${user.last_name}`,
+        imageUrl: user.profile_image_path,
+        email: user.email,
+        bottomLinks,
+      }}
+      changelogProps={{ id: "neetochangelog-trigger" }}
+    />
   );
 };
 
