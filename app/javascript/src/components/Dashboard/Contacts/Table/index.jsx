@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Table as NeetoUITable } from "neetoui";
 
-import TableColumns from "./TableColumns";
+import columns from "./columns";
 
 import { DEFAULT_PAGE_SIZE, INITIAL_PAGE_NUMBER } from "../constants";
 
@@ -24,7 +24,7 @@ const Table = ({ handleDeleteClick, handleEditClick, contacts }) => {
   return (
     <NeetoUITable
       rowData={contacts}
-      columnData={TableColumns(contactOptions)}
+      columnData={columns(contactOptions)}
       currentPageNumber={currentPageNumber}
       defaultPageSize={DEFAULT_PAGE_SIZE}
       handlePageChange={value => setCurrentPageNumber(value)}
