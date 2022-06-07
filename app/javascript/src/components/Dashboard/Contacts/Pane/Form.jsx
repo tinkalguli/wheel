@@ -44,11 +44,11 @@ export default function ContactForm({ onSubmit, onClose, contact, isEdit }) {
             />
             <Select
               required
+              isSearchable
               label="Role"
               name="role"
               className="w-full flex-grow-0"
               options={ROLES}
-              isSearchable={true}
               placeholder="Select Role"
             />
           </Pane.Body>
