@@ -10,21 +10,10 @@ const Table = ({ handleDeleteClick, handleEditClick, contacts }) => {
   const [currentPageNumber, setCurrentPageNumber] =
     useState(INITIAL_PAGE_NUMBER);
 
-  const contactOptions = [
-    {
-      label: "Delete",
-      onClick: handleDeleteClick,
-    },
-    {
-      label: "Edit",
-      onClick: handleEditClick,
-    },
-  ];
-
   return (
     <NeetoUITable
       rowData={contacts}
-      columnData={columns(contactOptions)}
+      columnData={columns(handleDeleteClick, handleEditClick)}
       currentPageNumber={currentPageNumber}
       defaultPageSize={DEFAULT_PAGE_SIZE}
       handlePageChange={value => setCurrentPageNumber(value)}
