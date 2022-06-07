@@ -4,6 +4,8 @@ import { Table as NeetoUITable } from "neetoui";
 
 import TableColumns from "./TableColumns";
 
+import { DEFAULT_PAGE_SIZE } from "../constants";
+
 const Table = ({ handleDeleteClick, handleEditClick, contacts }) => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
@@ -22,9 +24,8 @@ const Table = ({ handleDeleteClick, handleEditClick, contacts }) => {
     <NeetoUITable
       rowData={contacts}
       columnData={TableColumns(contactOptions)}
-      allowRowClick={true}
       currentPageNumber={currentPageNumber}
-      defaultPageSize={10}
+      defaultPageSize={DEFAULT_PAGE_SIZE}
       handlePageChange={value => setCurrentPageNumber(value)}
     />
   );
