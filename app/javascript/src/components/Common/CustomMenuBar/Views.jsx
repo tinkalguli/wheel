@@ -121,7 +121,7 @@ const Views = ({ views = [], segments = [], tags = [] }) => {
         onCollapse={onSegmentsSearchCollapse}
         onChange={event => setSegmentsSearchterm(event.target.value)}
         value={segmentsSearchTerm}
-        placeholder={"Search Segments"}
+        placeholder="Search Segments"
       />
       {filteredSegments.map((view, idx) => (
         <BlockItem

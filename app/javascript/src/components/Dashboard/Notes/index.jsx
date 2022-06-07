@@ -84,7 +84,7 @@ const Notes = () => {
         {notes.length ? (
           <Scrollable
             className="w-full min-w-full space-y-4 pb-8"
-            size={"viewport"}
+            size="viewport"
           >
             {notes.map(note => (
               <NoteCard
