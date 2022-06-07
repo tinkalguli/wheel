@@ -112,7 +112,7 @@ const Views = ({ views = [], segments = [], tags = [] }) => {
           textTransform="uppercase"
           weight="bold"
         >
-          {"SEGMENTS"}
+          SEGMENTS
         </Typography>
       </MenuBar.SubTitle>
       <MenuBar.Search
@@ -138,7 +138,7 @@ const Views = ({ views = [], segments = [], tags = [] }) => {
           textTransform="uppercase"
           weight="bold"
         >
-          {"TAGS"}
+          TAGS
         </Typography>
       </MenuBar.SubTitle>
       <MenuBar.Search
@@ -147,7 +147,7 @@ const Views = ({ views = [], segments = [], tags = [] }) => {
         onCollapse={onTagsSearchCollapse}
         onChange={event => setTagsSearchterm(event.target.value)}
         value={tagsSearchTerm}
-        placeholder={"Search Tags"}
+        placeholder="Search Tags"
       />
       {filteredTags.map((view, idx) => (
         <BlockItem
