@@ -8,9 +8,9 @@ import notesApi from "apis/notes";
 import CustomMenuBar from "components/Common/CustomMenuBar";
 import EmptyState from "components/Common/EmptyState";
 
+import NoteCard from "./Card";
 import { NOTES_SEGMENTS, NOTES_TAGS, NOTES_VIEWS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
-import NoteCard from "./NoteCard";
 import NewNotePane from "./Pane/Create";
 import EditNotePane from "./Pane/Edit";
 
@@ -84,7 +84,7 @@ const Notes = () => {
         {notes.length ? (
           <Scrollable
             className="w-full min-w-full space-y-4 pb-8"
-            size={"viewport"}
+            size="viewport"
           >
             {notes.map(note => (
               <NoteCard

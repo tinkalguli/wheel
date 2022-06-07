@@ -45,38 +45,38 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <Input
+              required
               label="Title"
               name="title"
               placeholder="Enter note title"
               className="w-full flex-grow-0"
-              required
             />
             <Textarea
+              required
               label="Description"
               name="description"
               placeholder="Enter note description"
               className="w-full flex-grow-0"
               rows={4}
-              required
             />
             <Select
               required
+              isSearchable
               label="Assigned Contact"
               isMulti={true}
               name="assigned_contacts"
               className="w-full flex-grow-0"
               options={assignedContacts}
-              isSearchable={true}
               placeholder="Select Contacts"
             />
             <Select
               required
+              isSearchable
               label="Tags"
               isMulti={true}
               name="tags"
               className="w-full flex-grow-0"
               options={TAGS}
-              isSearchable={true}
               placeholder="Select Tags"
             />
           </Pane.Body>
