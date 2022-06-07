@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Logo from "images/Logo";
 import { RightArrow, LeftArrow } from "neetoicons";
 import { Sidebar as NeetoUISidebar } from "neetoui/layouts";
 import { useHistory } from "react-router-dom";
@@ -14,7 +15,6 @@ import { useAuthDispatch } from "contexts/auth";
 import { useUserState } from "contexts/user";
 
 import { APP_NAME, SIDENAV_LINKS } from "./constants";
-import Logo from "./Logo";
 
 const Sidebar = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -54,7 +54,7 @@ const Sidebar = () => {
         navLinks={SIDENAV_LINKS}
         appName={APP_NAME}
         organizationInfo={{
-          logo: <Logo />,
+          logo: <img src={Logo} alt="logo" />,
         }}
         profileInfo={{
           name: `${user.first_name} ${user.last_name}`,
