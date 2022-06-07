@@ -16,18 +16,18 @@ const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
   const [selectedContact, setSelectedContact] = useState(null);
-  const [showEditContact, setShowEditContact] = useState(false);
-  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [isEditPaneOpen, setIsEditPaneOpen] = useState(false);
+  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
   const [, setSelectedContactIds] = useState([]);
 
   const handleDeleteClick = contact => {
-    setShowDeleteAlert(true);
+    setIsDeleteAlertOpen(true);
     setSelectedContactIds(state => [...state, contact?.id]);
   };
 
   const handleEditClick = contact => {
     setSelectedContact(contact);
-    setShowEditContact(true);
+    setIsEditPaneOpen(true);
   };
 
   return (
@@ -68,13 +68,13 @@ const Contacts = () => {
           setShowPane={setShowNewContactPane}
         />
         <EditContactPane
-          showPane={showEditContact}
-          setShowPane={setShowEditContact}
+          showPane={isEditPaneOpen}
+          setShowPane={setIsEditPaneOpen}
           contact={selectedContact}
         />
-        {showDeleteAlert && (
+        {isDeleteAlertOpen && (
           <DeleteAlert
-            onClose={() => setShowDeleteAlert(false)}
+            onClose={() => setIsDeleteAlertOpen(false)}
             setSelectedContactIds={setSelectedContactIds}
           />
         )}
